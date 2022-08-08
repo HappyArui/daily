@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            margin: 100px;
+        }
+
+        ul li {
+            float: left;
+            /* box 也要旋转 也需要透视，干脆给li加 里面的盒子都有 */
+            perspective: 500px;
+            width: 120px;
+            height: 30px;
+            list-style: none;
+            margin-left: 10px;
+
+        }
+
+        .box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: all 1s;
+        }
+
+        .box:hover {
+            transform: rotateX(90deg);
+        }
+
+        .front,
+        .buttom {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .front {
+            background-color: pink;
+            transform: translateZ(15px);
+        }
+
+        .buttom {
+            background-color: purple;
+            /* 注意要先写移动 */
+            transform: translateY(15px) rotateX(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <div class="box">
+                <div class="front"></div>
+                <div class="buttom"></div>
+            </div>
+
+        </li>
+        <li>
+            <div class="box">
+                <div class="front"></div>
+                <div class="buttom"></div>
+            </div>
+
+        </li>
+        <li>
+            <div class="box">
+                <div class="front"></div>
+                <div class="buttom"></div>
+            </div>
+
+        </li>
+        <li>
+            <div class="box">
+                <div class="front"></div>
+                <div class="buttom"></div>
+            </div>
+
+        </li>
+    </ul>
+</body>
+
+</html>
